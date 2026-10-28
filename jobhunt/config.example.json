@@ -1,0 +1,139 @@
+{
+  "_note": "Discovery + ranking config. Copy to jobhunt/config.json and edit. ATS board slugs are checked at runtime: a wrong slug just returns 0 jobs. Replace every example list with your own targets.",
+
+  "sources": {
+    "greenhouse": true,
+    "lever": true,
+    "ashby": true,
+    "remoteok": true,
+    "remotive": true,
+    "hn_whoishiring": true,
+    "yc_jobs": true
+  },
+
+  "companies": {
+    "_note": "Board slugs from the public ATS URLs: boards.greenhouse.io/<slug>, jobs.lever.co/<slug>, jobs.ashbyhq.com/<slug>. These are examples of public boards, not recommendations.",
+    "greenhouse": ["stripe", "databricks", "gitlab", "vercel", "airbnb"],
+    "lever": ["meesho", "cred", "paytm"],
+    "ashby": ["openai", "linear", "supabase", "notion", "ramp"]
+  },
+
+  "role_keywords": [
+    "software engineer", "software developer", "sde", "developer",
+    "backend", "back-end", "back end", "full stack", "fullstack", "full-stack",
+    "frontend", "front-end", "platform engineer",
+    "ai", "ml", "machine learning", "llm", "genai", "ai engineer", "ml engineer", "agent",
+    "data engineer", "founding engineer", "forward deployed"
+  ],
+
+  "downrank_keywords": [
+    "senior", "sr.", "staff", "principal", "lead ", " lead", "manager", "director",
+    "head of", "vp ", "10+ years", "8+ years", "7+ years", "6+ years", "5+ years", "4+ years",
+    "3+ years", "phd required"
+  ],
+
+  "hard_exclude_keywords": [
+    "sales", "account executive", "recruiter", "marketing manager", "customer success",
+    "unpaid", "clearance required", "us citizen only", "must be us citizen"
+  ],
+
+  "scoring": {
+    "_note": "Points added per role bucket. Raise the buckets you want most. Buckets: founding, ai, fullstack, backend, swe.",
+    "role_weights": {"founding": 28, "ai": 28, "fullstack": 24, "backend": 22, "swe": 18},
+    "home_city_boost": 10,
+    "tier1_min_score": 66,
+    "tier_min_score": 50,
+    "tier1_cap": 40,
+    "tier2_cap": 300,
+    "per_company_tier1_cap": 3
+  },
+
+  "geo_rules": {
+    "_note": "Edit for your country. 'home' terms count as fully eligible. Set gulf_eligible true if you would relocate there.",
+    "india_terms": ["india", "pune", "bangalore", "bengaluru", "mumbai", "hyderabad", "delhi", "gurgaon", "gurugram", "noida", "chennai", "remote - india", "remote india"],
+    "remote_terms": ["remote", "anywhere", "work from home", "wfh", "distributed", "global"],
+    "gulf_terms": ["dubai", "uae", "abu dhabi", "qatar", "doha", "riyadh", "saudi", "gulf"],
+    "gulf_eligible": false,
+    "sponsor_terms": ["visa sponsorship", "sponsorship available", "we sponsor", "relocation provided", "relocation support", "h-1b", "h1b", "skilled worker visa"],
+    "onsite_foreign_block_terms": ["onsite", "on-site", "in-office", "hybrid"]
+  },
+
+  "hn_whoishiring": {
+    "_note": "Algolia HN Search API: finds the latest 'Ask HN: Who is hiring?' story and pulls its top-level comments.",
+    "max_comments": 600
+  },
+
+  "yc_jobs": {
+    "_note": "Public ycombinator.com/jobs pages embed the listings as JSON in a data-page attribute. Apply links go through a login on workatastartup.com, so you apply there yourself.",
+    "paths": ["/jobs/role/software-engineer/india", "/jobs/role/software-engineer/remote"]
+  },
+
+  "limits": {
+    "max_jobs_per_source": 400
+  },
+
+  "post_harvest": {
+    "_note": "LinkedIn hiring-post harvester via the Apify actor harvestapi/linkedin-post-search (cookieless, no LinkedIn login, about $0.05 per run). Set APIFY_TOKEN or create jobhunt/.apify_token (gitignored).",
+
+    "apify": {
+      "actor": "harvestapi/linkedin-post-search",
+      "token_env": "APIFY_TOKEN",
+      "token_file": ".apify_token",
+      "sort_by": "date",
+      "scrape_pages": 1,
+      "scrape_comments": false,
+      "max_comments": 10,
+      "run_timeout_s": 240
+    },
+
+    "hiring_verbs": [
+      "hiring", "we are hiring", "we're hiring", "looking for", "seeking",
+      "join our team", "open role", "open position", "apply now", "dm me",
+      "reach out", "send your resume", "send cv", "we need a"
+    ],
+
+    "query_templates": [
+      "hiring software engineer india startup",
+      "hiring backend engineer remote india",
+      "hiring full stack developer startup india",
+      "hiring new grad software engineer india",
+      "hiring AI engineer startup india",
+      "hiring founding engineer early stage startup",
+      "hiring junior developer remote",
+      "hiring data engineer india startup"
+    ],
+    "_query_note": "Write these like LinkedIn search-bar queries: role + location + seniority + 'hiring'. Replace with the roles you target. Fewer, sharper queries beat many vague ones.",
+
+    "date_window": "past-week",
+    "max_queries_per_run": 8,
+    "max_posts_per_query": 40,
+
+    "_browser_note": "max_scroll_rounds and pacing are only used by the optional Threads browser path (threads_posts.py).",
+    "max_scroll_rounds": 3,
+    "pacing_seconds_min": 4,
+    "pacing_seconds_max": 12,
+
+    "daily_draft_cap": 15,
+
+    "seen_store": "posts_seen.json",
+    "raw_output": "posts_raw.json",
+    "ranked_output": "posts_ranked.csv"
+  },
+
+  "telegram": {
+    "_note": "Optional Telegram job-channel harvester. Reads as you via a Telethon user session (you must be a member of the channel). One-time interactive login creates session_file, which is gitignored. Never commit it.",
+    "channels": ["SDEjobsandinternships"],
+    "api_id_env": "TELEGRAM_API_ID",
+    "api_hash_env": "TELEGRAM_API_HASH",
+    "session_file": ".telegram.session",
+    "max_messages_per_run": 200,
+    "ignore_apply_url_substrings": ["topmate.io/"],
+    "_ignore_note": "Self-promo or paid-referral links that are not real applications. A post whose only link matches one of these counts as having no apply link.",
+    "keep_batch_years": ["2026", "2025"],
+    "fresher_terms": ["fresher", "freshers", "intern", "internship", "new grad", "new-grad",
+      "entry level", "entry-level", "graduate", "0-1 year", "0 to 1 year", "0-2 year", "junior"],
+    "senior_exclude": ["2+ year", "3+ year", "4+ year", "5+ year", "6+ year", "7+ year", "8+ year",
+      "senior", "staff engineer", "principal", "tech lead", "team lead", "engineering manager"],
+    "daily_shortlist_cap": 25
+  }
+}

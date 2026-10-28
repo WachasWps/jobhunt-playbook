@@ -1,0 +1,42 @@
+FICTIONAL EXAMPLE JD. Acme Analytics is an invented company.
+
+TITLE: AI Engineer (0-2 years)
+COMPANY: Acme Analytics
+LOCATION: Bengaluru, India (hybrid, 3 days a week in office)
+EMPLOYMENT: Full-time
+SOURCE: Ashby job board (public posting API)
+URL: https://jobs.ashbyhq.com/acme-analytics/00000000-0000-0000-0000-000000000000
+POSTED: 2026-10-26
+SAVED: 2026-10-28 (postings disappear, so the verbatim text is kept here)
+COMP: not listed
+
+ABOUT ACME ANALYTICS
+Acme Analytics builds an AI copilot that helps finance teams answer questions about their own data.
+
+WHAT YOU WILL DO
+- Build and ship LLM features in Python, from retrieval to the API the product calls.
+- Own retrieval quality for our RAG pipeline: chunking, embeddings, ranking.
+- Write evaluation sets and track answer quality across prompt and model changes.
+- Build FastAPI services backed by PostgreSQL.
+- Deploy on AWS with Docker and keep services observable.
+
+WHAT WE ARE LOOKING FOR
+- 0-2 years of experience building production software.
+- Strong Python. Experience with FastAPI or a similar framework.
+- Hands-on experience with LLM APIs and RAG.
+- SQL and PostgreSQL.
+- Comfort with AWS and Docker.
+
+NICE TO HAVE
+- LangChain or LlamaIndex.
+- Kubernetes.
+- Experience with finance data.
+
+APPLICATION FORM QUESTIONS (seen on the live form)
+- Are you legally authorized to work in India? (required, knockout)
+- Years of professional software experience (required, numeric)
+- Are you able to work from our Bengaluru office 3 days a week? (required, knockout)
+- Describe an LLM feature you shipped to production. How did you measure quality? (required)
+- Current CTC (required, numeric)
+- Expected CTC (required)
+- Notice period (required)

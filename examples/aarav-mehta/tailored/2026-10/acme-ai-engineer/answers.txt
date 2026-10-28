@@ -1,0 +1,40 @@
+FICTIONAL EXAMPLE. Acme Analytics | AI Engineer (0-2 years) | Bengaluru, hybrid
+Apply: https://jobs.ashbyhq.com/acme-analytics/00000000-0000-0000-0000-000000000000/application
+Resume: Aarav_Mehta_Resume.pdf (this folder)
+
+Fit check: 0-2 years asked, Aarav has 1 year 4 months full-time plus an internship. Python, FastAPI, RAG, evals, PostgreSQL, AWS and Docker all match the factsheet. LangChain and Kubernetes are nice-to-have and he has not used them in production, so the answers say so.
+
+Standard fields
+Name: Aarav Mehta
+Email: aarav@example.com
+Phone: +91 90000 00000
+Current company: Tidewater Systems
+LinkedIn: https://www.linkedin.com/in/aarav-mehta-example
+GitHub: https://github.com/aarav-mehta-example
+
+Are you legally authorized to work in India?
+Yes.
+
+Years of professional software experience
+1.4 (full-time since Jul 2025, plus a 6-month internship before that)
+
+Are you able to work from our Bengaluru office 3 days a week?
+Yes. I live in Bengaluru and already work hybrid.
+
+Describe an LLM feature you shipped to production. How did you measure quality?
+At Tidewater Systems I built an internal support assistant that answers agent questions using RAG over 1,200 help-center articles. It uses OpenAI embeddings stored in pgvector inside our PostgreSQL database, and a FastAPI service the support tool calls.
+
+For quality, I wrote an 80-question eval set with expected answers taken from the help center. I rerun it on every prompt or model change, and we only ship changes that pass. That set caught confident wrong answers on refund questions before launch.
+
+Current CTC
+900000
+
+Expected CTC
+12 to 14 lakhs per annum, open to discuss.
+
+Notice period
+30 days.
+
+Not asked on this form, ready if a recruiter asks:
+LangChain: not in production. I built retrieval directly on the OpenAI API and pgvector, so I know what those frameworks wrap.
+Kubernetes: not yet. I deploy with Docker on AWS.

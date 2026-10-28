@@ -1,0 +1,106 @@
+{
+  "_note": "FICTIONAL EXAMPLE profile for Aarav Mehta. Every value is invented.",
+
+  "identity": {
+    "full_name": "Aarav Mehta",
+    "preferred_name": "Aarav",
+    "email": "aarav@example.com",
+    "phone": "+91 90000 00000",
+    "location_city": "Bengaluru",
+    "location_country": "India",
+    "pronouns": ""
+  },
+
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/aarav-mehta-example",
+    "github": "https://github.com/aarav-mehta-example",
+    "portfolio": "",
+    "twitter": ""
+  },
+
+  "education": {
+    "degree": "B.Tech, Computer Science and Engineering",
+    "institute": "Example Institute of Technology, Bengaluru",
+    "dates": "Aug 2021 - May 2025",
+    "grade": "CGPA 8.4/10",
+    "graduation_year": "2025"
+  },
+
+  "current_employment": {
+    "employed": true,
+    "employer_display_name": "Tidewater Systems",
+    "employer_legal_name": "Tidewater Systems Pvt Ltd",
+    "title": "Software Engineer",
+    "start_date": "Jul 2025",
+    "search_mode": "active"
+  },
+
+  "work_authorization": {
+    "citizenship": "India",
+    "authorized_to_work_in": ["India"],
+    "needs_sponsorship_for_onsite_foreign": true,
+    "open_to_remote": true,
+    "relocate_within_country": "Pune, Hyderabad",
+    "relocate_abroad_if_sponsored": "no"
+  },
+
+  "availability": {
+    "notice_period": "30 days",
+    "earliest_start": "30 days after offer"
+  },
+
+  "compensation": {
+    "currency": "INR",
+    "current_ctc_numeric": "900000",
+    "current_ctc_text": "9 lakhs per annum fixed",
+    "expected_ctc_range": "12 to 14 lakhs per annum",
+    "expected_ctc_high_band": "15 to 18 lakhs per annum",
+    "remote_usd_expectation": "open to discuss",
+    "negotiable": true
+  },
+
+  "targeting": {
+    "roles": ["AI Engineer", "Backend Engineer", "Software Engineer"],
+    "standard_titles_for_resume_headline": ["AI Engineer", "Backend Engineer"],
+    "years_of_experience": "1 year 4 months full-time since Jul 2025, plus a 6-month internship",
+    "max_years_required_to_apply": 2,
+    "geographies": ["India", "Global-remote"],
+    "remote_preference": "Bengaluru hybrid or on-site, or remote",
+    "prioritize_companies": [],
+    "avoid_companies": ["Tidewater Systems"]
+  },
+
+  "screening_answers": {
+    "authorized_to_work_in_country_of_role": "Yes for India",
+    "require_sponsorship": "No for India",
+    "willing_to_relocate": "Yes, to Pune or Hyderabad",
+    "work_from_office": "Yes, up to 5 days a week in Bengaluru",
+    "how_did_you_hear": "Company careers page",
+    "why_leaving_current_role": "I want to spend most of my time on LLM features in production, and this role is built around that."
+  },
+
+  "resume_variant_map": {
+    "default": "resume/base/aarav-backend.pdf",
+    "ai": "resume/base/aarav-ai.pdf",
+    "backend": "resume/base/aarav-backend.pdf",
+    "fresher": "resume/base/aarav-ai.pdf"
+  },
+
+  "outreach": {
+    "signature_lines": ["Aarav Mehta", "github.com/aarav-mehta-example | linkedin.com/in/aarav-mehta-example"],
+    "pitch_angles": [
+      {
+        "key": "rag",
+        "keywords": ["llm", "rag", "genai", "ai engineer", "embeddings", "agent"],
+        "proof": "At Tidewater Systems I shipped a support assistant with RAG over 1,200 help-center articles on pgvector, and an 80-question eval set we rerun on every prompt change."
+      },
+      {
+        "key": "backend",
+        "keywords": ["backend", "api", "webhook", "python", "fastapi", "postgres"],
+        "proof": "At Tidewater Systems I built a FastAPI webhook service for 6 carrier integrations, with idempotency keys in PostgreSQL and retries with backoff."
+      }
+    ],
+    "default_angle": "backend",
+    "ps_lines": ["I'm in Bengaluru and fine with on-site."]
+  }
+}

@@ -1,0 +1,122 @@
+/* ATS-safe, single-column, print-optimized resume stylesheet.
+   Real selectable text, standard headings, no columns/tables/images. */
+
+:root {
+  --ink: #1a1a1a;
+  --muted: #555;
+  --accent: #1f3a5f;   /* dark navy, human-facing only; ATS reads the text regardless */
+  --rule: #c9c9c9;
+}
+
+* { box-sizing: border-box; }
+
+@page {
+  size: A4;
+  margin: 9mm 11mm;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Calibri", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  font-size: 10pt;
+  line-height: 1.22;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Screen-only page frame so previews look like paper; print uses @page margins */
+@media screen {
+  body {
+    max-width: 210mm;
+    margin: 16px auto;
+    padding: 14mm 15mm;
+    background: #fff;
+    box-shadow: 0 1px 8px rgba(0,0,0,.15);
+  }
+  html { background: #ececec; }
+}
+
+/* ---------- Header ---------- */
+h1 {
+  font-size: 21pt;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 0 0 2px 0;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.role {
+  text-align: center;
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 3px 0;
+}
+
+.contact {
+  text-align: center;
+  font-size: 9pt;
+  color: var(--muted);
+  margin: 0 0 4px 0;
+}
+.contact a { color: var(--muted); text-decoration: none; }
+
+/* ---------- Section headings ---------- */
+h2 {
+  font-size: 10.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--accent);
+  border-bottom: 1.1px solid var(--rule);
+  padding-bottom: 1.5px;
+  margin: 6px 0 3px 0;
+}
+
+/* ---------- Summary ---------- */
+.summary { margin: 0 0 2px 0; text-align: justify; }
+
+/* ---------- Job / role blocks ---------- */
+.job {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 4px;
+}
+.job .title { font-weight: 700; font-size: 10.2pt; }
+.job .dates { font-style: italic; color: var(--muted); font-size: 9pt; white-space: nowrap; }
+.subhead { font-style: italic; color: var(--muted); font-size: 9pt; margin: 0 0 1px 0; }
+
+.job-block { break-inside: avoid; page-break-inside: avoid; }
+
+/* ---------- Lists ---------- */
+ul {
+  margin: 2px 0 3px 0;
+  padding-left: 15px;
+}
+li {
+  margin: 0 0 1.2px 0;
+  padding-left: 1px;
+}
+li::marker { color: var(--accent); }
+
+/* Skills: tighter, no big gaps */
+.skills li { margin-bottom: 2px; }
+
+/* Projects / achievements compact */
+.compact li { margin-bottom: 2.5px; }
+
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+p { margin: 3px 0; }
+
+/* Keep things from orphaning awkwardly */
+h2 { break-after: avoid; page-break-after: avoid; }

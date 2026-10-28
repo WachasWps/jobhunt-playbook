@@ -1,0 +1,50 @@
+# ---------------------------------------------------------------------------
+# Personal data. These stay on your machine by default, even if your copy of
+# this repo is private. If your repo IS private and you want git backups of
+# your own files, delete the lines you want tracked. Never push them publicly.
+# ---------------------------------------------------------------------------
+/profile/factsheet.md
+/profile/profile.json
+/profile/answers-bank.md
+/jobhunt/config.json
+/resume/base/*
+!/resume/base/README.md
+
+# Tailored resumes, saved JDs and form answers (one folder per application)
+/tailored/
+
+# Tracker logs (the *.template.csv headers are committed, your rows are not)
+/tracker/*.csv
+!/tracker/*.template.csv
+
+# Generated outreach drafts, batch trackers and send logs
+/outreach/
+
+# Harvested and ranked job data, dashboard, harvester state
+/data/
+/jobhunt/data/
+
+# Secrets: tokens, keys, sessions. Never commit these.
+*.token
+.apify_token
+.env
+.env.*
+*.session
+*.session-journal
+.telegram.session*
+mcporter.json
+*.pem
+*.key
+
+# Build output
+*.pdf
+!/examples/**/*.pdf
+*.html
+*.docx
+
+# Python / OS
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.DS_Store

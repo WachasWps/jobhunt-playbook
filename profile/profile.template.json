@@ -1,0 +1,108 @@
+{
+  "_note": "Copy to profile/profile.json (gitignored) and replace every <...> placeholder. Agents read this to fill application forms, pick resumes and draft outreach. Every fact here must also be true in factsheet.md. Leave a field as \"\" if you do not want it used.",
+
+  "identity": {
+    "full_name": "<First Last>",
+    "preferred_name": "<First>",
+    "email": "<you@example.com>",
+    "phone": "<+91 90000 00000>",
+    "location_city": "<City>",
+    "location_country": "<Country>",
+    "pronouns": "",
+    "_sensitive_note": "Leave date_of_birth and gender empty unless a form requires them. Agents must ask you before filling optional demographic fields."
+  },
+
+  "links": {
+    "linkedin": "<https://www.linkedin.com/in/your-handle>",
+    "github": "<https://github.com/your-handle>",
+    "portfolio": "",
+    "twitter": ""
+  },
+
+  "education": {
+    "degree": "<B.E. / B.Tech / B.Sc, Major>",
+    "institute": "<Full institute name, City>",
+    "dates": "<Mon YYYY - Mon YYYY>",
+    "grade": "<CGPA 8.0/10 or GPA, or empty>",
+    "graduation_year": "<YYYY>"
+  },
+
+  "current_employment": {
+    "employed": true,
+    "employer_display_name": "<Company as shown on your resume>",
+    "employer_legal_name": "<Legal entity, for forms that ask for employer name>",
+    "title": "<Your official title>",
+    "start_date": "<Mon YYYY>",
+    "search_mode": "<quiet | active>",
+    "_note": "If employed, agents follow docs/07-comp-and-discretion.md. Never reveal internals of this employer (customers, partners, ticket IDs, unreleased work)."
+  },
+
+  "work_authorization": {
+    "citizenship": "<Country>",
+    "authorized_to_work_in": ["<Country>"],
+    "needs_sponsorship_for_onsite_foreign": true,
+    "open_to_remote": true,
+    "relocate_within_country": "<yes | no | cities>",
+    "relocate_abroad_if_sponsored": "<yes | no>"
+  },
+
+  "availability": {
+    "notice_period": "<e.g. 15 days, 30 days, immediate>",
+    "earliest_start": "<e.g. 2 weeks after offer>"
+  },
+
+  "compensation": {
+    "_rules": "See docs/07-comp-and-discretion.md. current_ctc must be the truth that a background check would find. Expected is a range. Agents never invent numbers here.",
+    "currency": "<INR | USD | ...>",
+    "current_ctc_numeric": "<annual number in currency units, only for required numeric fields>",
+    "current_ctc_text": "<how you say it in a text field, e.g. 'X lakhs per annum fixed'>",
+    "expected_ctc_range": "<e.g. A-B lakhs per annum>",
+    "expected_ctc_high_band": "<range to use when the posted band is clearly higher>",
+    "remote_usd_expectation": "<e.g. open to discuss, around $N/month>",
+    "negotiable": true
+  },
+
+  "targeting": {
+    "roles": ["<Software Engineer>", "<Backend Engineer>", "<AI Engineer>"],
+    "standard_titles_for_resume_headline": ["<the searched title you can honestly use>"],
+    "years_of_experience": "<e.g. 1 year 6 months of production work since Mon YYYY>",
+    "max_years_required_to_apply": 2,
+    "geographies": ["<Country>", "Global-remote"],
+    "remote_preference": "<e.g. on-site in my city, remote, or hybrid>",
+    "prioritize_companies": [],
+    "avoid_companies": ["<current employer>", "<companies close to your current employer's network>"]
+  },
+
+  "screening_answers": {
+    "_note": "Short canonical answers. Longer ones live in profile/answers-bank.md.",
+    "authorized_to_work_in_country_of_role": "<Yes for Country>",
+    "require_sponsorship": "<No for Country>",
+    "willing_to_relocate": "<...>",
+    "work_from_office": "<e.g. Yes, 5 days a week in City>",
+    "how_did_you_hear": "<Company careers page / job board / LinkedIn post>",
+    "why_leaving_current_role": "<positive, growth and scope focused, never negative about the employer>"
+  },
+
+  "resume_variant_map": {
+    "_note": "Paths relative to the repo. rank.py picks <role>_<geo>, then <role>, then default. Roles: founding, ai, fullstack, backend, swe, fresher. Geo: india or global.",
+    "default": "resume/base/<your-default>.pdf",
+    "ai": "resume/base/<ai-variant>.pdf",
+    "fullstack": "resume/base/<fullstack-variant>.pdf",
+    "backend": "resume/base/<backend-variant>.pdf",
+    "fresher": "resume/base/<new-grad-variant>.pdf"
+  },
+
+  "outreach": {
+    "_note": "Used by jobhunt/outreach/draft_posts.py for first drafts. Agents still rewrite each draft per prompts/cold-outreach-drafter.md.",
+    "signature_lines": ["<First Last>", "<github.com/handle> | <linkedin.com/in/handle>"],
+    "pitch_angles": [
+      {
+        "key": "<angle-name, e.g. backend>",
+        "keywords": ["<words in a post that call for this angle>"],
+        "proof": "<one or two sentences of proof, copied from factsheet.md>"
+      }
+    ],
+    "default_angle": "<key of the angle to use when nothing matches>",
+    "ps_lines": ["<a short true personal line, e.g. City-based and open to on-site>"]
+  }
+}
